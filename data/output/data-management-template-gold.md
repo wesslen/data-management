@@ -1,0 +1,13 @@
+# Data Management Template
+
+| Critical Data Element Name | Business Description | Technical Description | Source System | Data Format | Calculation/Formula | Update Frequency | Data Owner | Data Steward | Data Classification | Validation Rules |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Cash_CheckingAccount | Primary operational checking account balance | Current balance in main operating account | Banking System - CitiBank Treasury Portal | Float | Non-calculated | Daily | Treasury Manager | Financial Analyst | Confidential | Must be >= 0, Maximum $10M threshold alert |
+| Cash_SavingsAccount | Interest-bearing savings account balance | Balance in corporate savings account including accrued interest | Banking System - CitiBank Treasury Portal | Float | Non-calculated | Daily | Treasury Manager | Financial Analyst | Confidential | Must be >= 0, Maximum $5M threshold alert |
+| Cash_PettyCash | Physical cash maintained for small expenses | Sum of all petty cash boxes across locations | Manual count - Petty Cash Log System | Float | Non-calculated | Weekly | Office Manager | Financial Analyst | Internal | Must be >= 0, Maximum $1000 per location |
+| Total_CurrentAssets | Sum of all current assets | Aggregated value of all assets convertible to cash within one year | Excel Balance Sheet | Float | =B4+B10+B15 | Real-time | Controller | Senior Financial Analyst | Confidential | Must equal sum of component current assets |
+| AR_CustomerA | Accounts receivable for Customer A | Outstanding invoices for Customer A | Accounts Receivable System - SAP | Float | Non-calculated | Daily | AR Manager | AR Specialist | Restricted | Must be >= 0, Aging alerts at 30/60/90 days |
+| Buildings_Depreciation | Annual depreciation for buildings | Calculated reduction in building value | Fixed Asset System - SAP | Float | =-B23*0.05 | Monthly | Fixed Asset Manager | Financial Analyst | Internal | Must follow GAAP depreciation rules |
+| Retained_Earnings | Accumulated earnings not paid as dividends | Historical accumulated profits minus distributions | General Ledger - SAP | Float | Previous balance + Current period net income - Dividends | Monthly | Controller | Senior Financial Analyst | Confidential | Must reconcile with historical P&L |
+| Total_Assets | Total value of all company assets | Sum of all current and fixed assets | Excel Balance Sheet | Float | =B19+B31 | Real-time | Controller | Senior Financial Analyst | Confidential | Must equal liabilities plus equity |
+| Accounts_Payable_Total | Total owed to suppliers | Sum of all outstanding vendor invoices | Accounts Payable System - SAP | Float | =SUM(B38:B40) | Daily | AP Manager | AP Specialist | Confidential | Must be >= 0, Requires monthly reconciliation |
